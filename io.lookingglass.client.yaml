@@ -28,8 +28,8 @@ modules:
   sources:
   - type: git
     url: https://github.com/gnif/LookingGlass.git
-    tag: B3
-    commit: 2973319bff80bf1531265bdbec6707bdda3f40eb
+    tag: B4
+    commit: 25c88a1c6ca77c2db5f1fcef3458e3083b7bfaa7
 - name: looking-glass-extra
   buildsystem: simple
   sources:
