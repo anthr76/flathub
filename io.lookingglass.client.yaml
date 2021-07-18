@@ -19,8 +19,16 @@ modules:
   - type: archive
     url: https://www.spice-space.org/download/releases/spice-protocol/spice-protocol-0.14.0.tar.bz2
     sha256: b6a4aa1ca32668790b45a494bbd000e9d05797b391d5a5d4b91adf1118216eac
+- name: libdecor
+  buildsystem: meson
+  sources:
+  - type: git
+    url: https://gitlab.gnome.org/jadahl/libdecor.git
+    commit: 3c033aff99207ed0e26dcd9c614785e99b0ab8ed
 - name: looking-glass-client
   buildsystem: cmake
+  config-opts:
+    - -DENABLE_LIBDECOR=ON
   build-commands:
   - install -Dm755 /usr/lib/$(gcc -print-multiarch)/libbfd-*.so -t ${FLATPAK_DEST}/lib
   - install -Dm644 ../resources/icon-128x128.png /app/share/icons/hicolor/128x128/apps/io.lookingglass.client.png
