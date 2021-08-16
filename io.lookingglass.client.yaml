@@ -28,7 +28,7 @@ modules:
 - name: looking-glass-client
   buildsystem: cmake
   config-opts:
-    - -DENABLE_LIBDECOR=ON
+    - -DENABLE_LIBDECOR=OFF
   build-commands:
   - install -Dm755 /usr/lib/$(gcc -print-multiarch)/libbfd-*.so -t ${FLATPAK_DEST}/lib
   - install -Dm644 ../resources/icon-128x128.png /app/share/icons/hicolor/128x128/apps/io.lookingglass.client.png
