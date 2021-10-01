@@ -53,3 +53,4 @@ modules:
       - install -Dm644 VMware-Horizon-Client-${VERSION}.x64/share/icons/vmware-view.png ${FLATPAK_DEST}/share/icons/com.vmware.horizon.png
       - desktop-file-edit --set-key=Icon --set-value='/app/share/icons/com.vmware.horizon.png' ${FLATPAK_DEST}/share/applications/com.vmware.horizon.desktop
       - install -Dm 644 -t /app/share/metainfo com.vmware.horizon.metainfo.xml
+      - sed -i 's/\/usr\/lib\/vmware\/%s/\/app\/lib\/vmware\/%s/g' /app/bin/vmware-view
