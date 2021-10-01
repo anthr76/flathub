@@ -22,6 +22,60 @@ modules:
       - type: archive
         url: https://download.gnome.org/sources/glib/2.69/glib-2.69.1.tar.xz
         sha256: f92f34057a091fc8638d91f10cece842cb8618e9a1090b0ddb19cc15a21bf39c
+  - name: xprop
+    sources:
+      - type: archive
+        url: https://xorg.freedesktop.org/releases/individual/app/xprop-1.2.4.tar.bz2
+        sha256: 8c77fb096e46c60032b7e2bde9492c3ffcc18734f50b395085a5f10bfd3cf753
+  - name: libusb
+    config-opts:
+      - "--disable-static"
+    cleanup:
+      - "/lib/*.la"
+      - "/lib/pkgconfig"
+      - "/include"
+    sources:
+      - type: git
+        url: https://github.com/libusb/libusb.git
+        tag: "v1.0.23"
+        commit: e782eeb2514266f6738e242cdcb18e3ae1ed06fa
+  - name: pcsc
+    config-opts:
+      - "--disable-libsystemd"
+      - "--enable-pic"
+      - "--disable-libusb"
+      - "--enable-shared"
+      - "--with-systemdsystemunitdir=/app/lib/systemd/"
+    sources:
+      - type: git
+        url: https://github.com/LudovicRousseau/PCSC.git
+        tag: "pcsc-1.9.0"
+        commit: e796a0f12fbefa459bff0d25e27089615fa91f21
+  - name: freerdp
+    buildsystem: cmake-ninja
+    cleanup: []
+    config-opts:
+      - "-DCMAKE_BUILD_TYPE:STRING=Release"
+      - "-DCMAKE_INSTALL_LIBDIR:PATH=lib"
+      - "-DWITH_WAYLAND:BOOL=ON"
+      - "-DCHANNEL_TSMF:BOOL=ON"
+      - "-DCHANNEL_URBDRC:BOOL=OFF"
+      - "-DBUILD_TESTING:BOOL=OFF"
+      - "-DWITH_MANPAGES:BOOL=OFF"
+      - "-DWITH_GSSAPI:BOOL=OFF"
+      - "-DWITH_PCSC:BOOL=OFF"
+      - "-DWITH_SERVER:BOOL=OFF"
+      - "-DWITH_CUPS:BOOL=ON"
+      - "-DWITH_FFMPEG:BOOL=ON"
+      - "-DWITH_OSS:BOOL=OFF"
+      - "-DWITH_PULSE:BOOL=ON"
+      - "-DWITH_CHANNELS:BOOL=ON"
+      - "-DWITH_LIBSYSTEMD:BOOL=OFF"
+    sources:
+      - type: git
+        url: https://github.com/FreeRDP/FreeRDP.git
+        tag: 2.4.0
+        commit: f797e200a2cd47fd42318359b8ae4d46e6507eec
   - name: vmware-horizon-client
     buildsystem: simple
     sources:
