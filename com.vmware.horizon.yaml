@@ -72,6 +72,7 @@ modules:
       - "-DWITH_PULSE:BOOL=ON"
       - "-DWITH_CHANNELS:BOOL=ON"
       - "-DWITH_LIBSYSTEMD:BOOL=OFF"
+      - "-DWITH_WAYLAND:BOOL=OFF"
     sources:
       - type: git
         url: https://github.com/FreeRDP/FreeRDP.git
