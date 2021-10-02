@@ -66,7 +66,7 @@ modules:
       - "-DBUILD_TESTING:BOOL=OFF"
       - "-DWITH_MANPAGES:BOOL=OFF"
       - "-DWITH_GSSAPI:BOOL=OFF"
-      - "-DWITH_PCSC:BOOL=OFF"
+      - "-DWITH_PCSC:BOOL=ON"
       - "-DWITH_SERVER:BOOL=OFF"
       - "-DWITH_CUPS:BOOL=ON"
       - "-DWITH_FFMPEG:BOOL=ON"
